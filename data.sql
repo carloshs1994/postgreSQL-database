@@ -15,7 +15,6 @@ VALUES
   ('Ditto', '14-MAY-2022', 4, true, 22);
 
 
-BEGIN;
 INSERT INTO owners(full_name, age)
 VALUES
   ('Sam Smith', 34),
@@ -24,25 +23,19 @@ VALUES
   ('Melody Pond', 77),
   ('Dean Winchester', 14),
   ('Jodie Whittaker', 38);
-COMMIT;
 
-BEGIN;
 INSERT INTO species(name)
 VALUES
   ('Pokemon'),
   ('Digimon');
-COMMIT;
 
-BEGIN;
 UPDATE ANIMALS
 SET species_id = 1;
 UPDATE ANIMALS
 SET species_id = 2
 WHERE name LIKE '%mon%';
-COMMIT;
 
 
-BEGIN;
 UPDATE ANIMALS
 SET owner_id = 1
 WHERE name = 'Agumon';
@@ -63,4 +56,3 @@ UPDATE ANIMALS
 SET owner_id = 5
 WHERE name IN ('Angemon', 'Boarmon');
 SAVEPOINT OWNER_5;
-COMMIT;

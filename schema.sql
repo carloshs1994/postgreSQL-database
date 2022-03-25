@@ -6,17 +6,19 @@ CREATE TABLE ANIMALS (
     date_of_birth DATE,
     escape_attempts INT,
     neutered BOOLEAN,
-    weight_kg DECIMAL,
-    species_id INT,
-    owner_id INT,
-    PRIMARY KEY (id),
-    CONSTRAINT species_key
-        FOREIGN KEY (species_id)
-            REFERENCES species(id),
-    CONSTRAINT owner_key
-        FOREIGN KEY (owner_id)
-            REFERENCES owners(id)
+    weight_kg DECIMAL
 );
+ALERT TABLE ANIMALS
+ADD species_id INT;
+ALERT TABLE ANIMALS
+ADD owner_id INT;
+ALERT TABLE ANIMALS
+ADD CONSTRAINT species_key
+FOREIGN KEY (species_id) REFERENCES species(id);
+ALERT TABLE ANIMALS
+ADD CONSTRAINT owner_key
+FOREIGN KEY (owner_id) REFERENCES owners(id);
+
 
 CREATE TABLE OWNERS (
     id INT GENERATED ALWAYS AS IDENTITY,
